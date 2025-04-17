@@ -9,7 +9,7 @@ import job from './lib/cron.js';
 const app = express();
 const PORT = process.env.PORT || 4000;
 
-job.start(); // Start the cron job
+job.start(); // Start the cron job, when using physical phone.
 app.use(express.json());
 app.use(cors());
 

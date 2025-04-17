@@ -11,7 +11,7 @@ const generateToken = (userId) => {
 router.post('/register', async(req, res) => {
     try{
 
-        const {email, username, password} = req.body;
+        const {username, email,  password} = req.body;
 
         if(!email || !username || !password){
             return res.status(400).json({message: "Please fill all fields"})
@@ -83,7 +83,8 @@ router.post('/login', async(req, res) => {
             return res.status(400).json({message: "Invalid credentials"})
         }
 
-        const isPasswordCorrect = await user.comaparePassword(password);
+        const isPasswordCorrect = await user.comparePassword(password);
+
         if(!isPasswordCorrect) {
             return res.status(400).json({message: "Invalid credentials"})
         }
